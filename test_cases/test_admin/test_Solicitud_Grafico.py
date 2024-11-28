@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-class SolicitudGraficoTest:
+class TestSolicitudGrafico:
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
@@ -13,7 +13,7 @@ class SolicitudGraficoTest:
         self.driver.quit()
         print("Prueba visual completada")
 
-    def Test_Correct(self):
+    def test_correct(self):
         time.sleep(3)
         esperado = 'Datos procesados e insertados correctamente.'
         self.driver.find_element(By.XPATH, "//input[@id= 'ion-input-2']").send_keys("6")
