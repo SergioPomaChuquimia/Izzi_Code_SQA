@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from page_elements.admin_page.modulo_pagina_page import AdminPage
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys #para el Tab
 
 def test_uni():
     admin = AdminPage()
@@ -68,6 +69,8 @@ def test_uni():
             EC.presence_of_element_located((By.XPATH, "//ion-item//ion-label[text()='Dirección *']//following::input[@name='direccion']"))
             ).send_keys("Av Saavedra")
     time.sleep(3)
+    #codigo para bajar el scroll del modal con TAB
+    driver.find_element(By.XPATH, "//ion-item//ion-label[text()='Dirección *']//following::input[@name='direccion']").send_keys(Keys.TAB)
 
     
     WebDriverWait(driver, 10).until(
