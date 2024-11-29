@@ -8,15 +8,16 @@ class TestCrearCategoria:
         self.driver.maximize_window()
         self.driver.get('http://localhost:8100/categorias')
         time.sleep(3)
+
     def teardown_method(self):
         self.driver.quit()
         print("prueba visual completada")
-
+        
     def test_crearcategoria(self):
         esperado = "Categoria creada con éxito"
         self.driver.find_element(By.XPATH,"//ion-button[@color='success']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH,"//input[@name='nombre']").send_keys("categoria11")
+        self.driver.find_element(By.XPATH,"//input[@name='nombre']").send_keys("categoria1")
         time.sleep(2)
         self.driver.find_element(By.XPATH,"//input[@name='descripcion']").send_keys("descripcion 1")
         time.sleep(2)
