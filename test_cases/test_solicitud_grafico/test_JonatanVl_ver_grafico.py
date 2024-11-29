@@ -22,7 +22,7 @@ class TestVerGrafico:
         time.sleep(1)
         self.driver.find_element(By.XPATH, "//button[@id = 'alert-input-2-24']").click()
         self.driver.find_element(By.XPATH, "//ion-button[text() = 'Enviar']").click()
-        actual = self.driver.find_element(By.XPATH, "//ion-note[@color = 'danger']").text
-        self.print('+++++++++++++++')
         time.sleep(8)
+        actual = self.driver.find_element(By.XPATH, "//p").text
+        self.print('+++++++++++++++')
         assert actual == esperado1 or actual == esperado2

@@ -35,3 +35,6 @@ class SolicitudGraficoTest:
         self.driver.find_element(By.XPATH, "//div[text() = ' Bolivia ']").click()
 
         self.driver.find_element(By.XPATH, "//ion-button[@type = 'submit']").click()
+        time.sleep(3)
+        actual = self.driver.find_element(By.XPATH, "//ion-text[@color = 'success']").text
+        assert actual == esperado
