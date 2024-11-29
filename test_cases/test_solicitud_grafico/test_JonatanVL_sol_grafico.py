@@ -15,8 +15,7 @@ class TestSolicitudGrafico:
 
     def test_correct(self):
         time.sleep(3)
-        esperado1 = 'Se recomienda comprar este producto.'
-        esperado2 = 'No se recomienda comprar este producto.'
+        esperado = 'Datos procesados e insertados correctamente.'
         self.driver.find_element(By.XPATH, "//input[@id= 'ion-input-2']").send_keys("6")
         self.driver.find_element(By.XPATH, "//ion-select").click()
         time.sleep(1)
@@ -24,5 +23,4 @@ class TestSolicitudGrafico:
         self.driver.find_element(By.XPATH, "//ion-button[text() = 'Enviar']").click()
         actual = self.driver.find_element(By.XPATH, "//ion-note[@color = 'danger']").text
         self.print('+++++++++++++++')
-        time.sleep(8)
-        assert actual == esperado1 or actual == esperado2
+        assert actual == esperado
