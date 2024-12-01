@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-class TestCrearCategoria:
+class TestIniciarSesion:
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
