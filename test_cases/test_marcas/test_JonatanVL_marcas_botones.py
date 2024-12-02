@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-class SolicitudGraficoTest:
+class TestBotonesMarcas:
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
@@ -22,5 +22,14 @@ class SolicitudGraficoTest:
 
     def test_modal_actualizar(self):
         time.sleep(3)
-        #esperado =
+        esperado = 'prueba'
         self.driver.find_element(By.XPATH, "(//ion-button[@color = 'primary'])[1]").click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, "//input[@id='ion-input-2']").send_keys(f'{esperado}')
+        boton_registro = self.driver.find_element(By.XPATH, "(//ion-button[@type='submit'])[2]")
+        self.driver.execute_script("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", boton_registro)
+        time.sleep(3)
+        self.driver.find_element(By.XPATH, "(//ion-button[@type='submit'])[2]").click()
+        time.sleep(2)
+        actual = self.driver.find_element(By.XPATH, "(//h2)[1]").text
+        assert actual == esperado
