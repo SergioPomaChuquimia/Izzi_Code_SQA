@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-class SolicitudGraficoTest:
+class TestMarcasGeneral:
     def setup_method(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
@@ -32,8 +32,8 @@ class SolicitudGraficoTest:
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//input[@id = 'ion-input-0']").send_keys("testClase")
         self.driver.find_element(By.XPATH, "//ion-select[@name = 'pais']").click()
+        time.sleep(2)
         self.driver.find_element(By.XPATH, "//div[text() = ' Bolivia ']").click()
-
         self.driver.find_element(By.XPATH, "//ion-button[@type = 'submit']").click()
         time.sleep(3)
         actual = self.driver.find_element(By.XPATH, "//ion-text[@color = 'success']").text
