@@ -30,7 +30,7 @@ class TestIniciarSesion:
         self.driver.find_element(By.XPATH,"//ion-button[text()='Iniciar Sesión']").click()
         time.sleep(2)
         actual1 = self.driver.find_element(By.XPATH,"//div[@style='color: red; margin-bottom: 10px; text-align: center;'][1]").text
-        time.sleep(0.5)
+        time.sleep(1)
         actual2 = self.driver.find_element(By.XPATH,"//div[@style='color: red; margin-bottom: 10px; text-align: center;'][2]").text
         assert actual1 == esperado1 and actual2 == esperado2, f"El actual es: '{actual1}' y el esperado es: '{esperado1}', o el actual es: '{actual2}' y el esperado es: '{esperado2}'"
 
