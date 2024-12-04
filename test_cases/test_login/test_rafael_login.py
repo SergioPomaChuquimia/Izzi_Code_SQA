@@ -16,11 +16,13 @@ class TestIniciarSesion:
     def test_iniciarSesion(self):
         esperado = "Usuario: cca757266"
         self.driver.find_element(By.XPATH,"//input[@name='email']").send_keys("cca757266")
-        time.sleep(2)
+        time.sleep(1)
         self.driver.find_element(By.XPATH,"//input[@name='password']").send_keys("141308")
-        time.sleep(2)
+        time.sleep(1)
+        self.driver.find_element(By.XPATH,"//ion-icon[@class='md ion-color ion-color-white hydrated']").click()
+        time.sleep(1)
         self.driver.find_element(By.XPATH,"//ion-button[text()='Iniciar Sesión']").click()
-        time.sleep(4)
+        time.sleep(2)
         actual = self.driver.find_element(By.XPATH,"//h6[@class='email-text']").text
         assert actual in esperado, f"El actual es:{actual} y el esperado es:{esperado}"
 

@@ -17,7 +17,7 @@ class TestCrearCategoria:
         esperado = "Categoria creada con éxito"
         self.driver.find_element(By.XPATH,"//ion-button[@color='success']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH,"//input[@name='nombre']").send_keys("categoria1")
+        self.driver.find_element(By.XPATH,"//input[@name='nombre']").send_keys("categoria1 automatizada")
         time.sleep(2)
         self.driver.find_element(By.XPATH,"//input[@name='descripcion']").send_keys("descripcion 1")
         time.sleep(2)
