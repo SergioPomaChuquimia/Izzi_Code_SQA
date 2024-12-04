@@ -15,14 +15,17 @@ class TestBotonesMarcas:
 
     def test_boton_eliminar(self):
         time.sleep(3)
-        #esperado = ''
+        esperado = ' Marca eliminado con éxito '
         self.driver.find_element(By.XPATH, "(//ion-button[@color = 'danger'])[2]").click()
+        time.sleep(1)
         self.driver.find_element(By.XPATH, "//span[text() = 'Sí']").click()
-        #actual
+        actual = self.driver.find_element(By.XPATH, "//ion-text[@color = 'success']").text
+        
+        assert actual == esperado
 
     def test_modal_actualizar(self):
         time.sleep(3)
-        esperado = 'prueba'
+        esperado = ' Marca actualizada con éxito '
         self.driver.find_element(By.XPATH, "(//ion-button[@color = 'primary'])[1]").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//input[@id='ion-input-2']").send_keys(f'{esperado}')
@@ -31,5 +34,5 @@ class TestBotonesMarcas:
         time.sleep(3)
         self.driver.find_element(By.XPATH, "(//ion-button[@type='submit'])[2]").click()
         time.sleep(2)
-        actual = self.driver.find_element(By.XPATH, "(//h2)[1]").text
+        actual = self.driver.find_element(By.XPATH, "//ion-text[@color = 'success']").text
         assert actual == esperado
