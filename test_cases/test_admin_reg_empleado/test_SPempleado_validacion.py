@@ -47,10 +47,13 @@ class TestEmplado:
         time.sleep(3)
         
         WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, "//div[contains(text(), 'La dirección es obligatoria.')]"))
+            #EC.visibility_of_element_located((By.XPATH, "//div[contains(text(), 'La dirección es obligatoria.')]"))
+            EC.visibility_of_element_located((By.XPATH, "(//div[@style='color: red; margin-bottom: 10px; text-align: center;'])[7]"))
         )
-        actual = self.driver.find_element(By.XPATH, "//div[contains(text(), 'La dirección es obligatoria.')]").text
+        #actual = self.driver.find_element(By.XPATH, "//div[contains(text(), 'La dirección es obligatoria.')]").text
+        actual = self.driver.find_element(By.XPATH, "(//div[@style='color: red; margin-bottom: 10px; text-align: center;'])[7]").text
         print("++++++++", actual)
+        
         esperado = "La dirección es obligatoria."
         assert actual == esperado, f"Error: se esperaba '{esperado}', pero se obtuvo '{actual}'"
         

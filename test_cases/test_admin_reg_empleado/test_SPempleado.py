@@ -88,12 +88,14 @@ class TestEmplado:
         ).click()
         time.sleep(3)
         WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, "//ion-text[@color='success' and contains(text(), 'Empleado creado con éxito')]"))
+            #EC.visibility_of_element_located((By.XPATH, "//ion-text[@color='success' and contains(text(), 'Empleado creado con éxito')]"))
+            EC.visibility_of_element_located((By.XPATH, "//ion-text[@color='success']"))
         )
-
-        actual = self.driver.find_element(By.XPATH, "//ion-text[@color='success' and contains(text(), 'Empleado creado con éxito')]").text
+        
+        actual = self.driver.find_element(By.XPATH, "//ion-text[@color='success']").text
+        #actual = self.driver.find_element(By.XPATH, "//ion-text[@color='success' and contains(text(), 'Empleado creado con éxito')]").text
         print("++++++++", actual)
-
+        
         esperado = "Empleado creado con éxito"
 
         assert actual == esperado, f"Error: se esperaba '{esperado}', pero se obtuvo '{actual}'"
